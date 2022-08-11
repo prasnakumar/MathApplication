@@ -12,8 +12,8 @@ namespace MathApplication.Controllers
     [ApiController]
     public class MathLogicController : ControllerBase
     {
-        public  readonly IMathRepo _math;
-        public MathLogicController(IMathRepo mathRepo)
+        public  readonly IMathServices _math;
+        public MathLogicController(IMathServices mathRepo)
         {
             _math = mathRepo;
         }

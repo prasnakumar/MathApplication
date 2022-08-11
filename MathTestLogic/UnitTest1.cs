@@ -30,5 +30,12 @@ namespace MathTestLogic
         {
             Assert.Equal(0.5, math.div(value));
         }
+        [Fact]
+        public void DivByZero()
+        {
+            MathValue value1 = new MathValue() { value1 = 0, value2 = 0 };
+        
+            Assert.Throws<DivideByZeroException>(()=> math.div(value1));
+        }
     }
 }
