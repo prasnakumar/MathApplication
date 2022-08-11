@@ -1,38 +1,37 @@
 ﻿using Model;
-using Repository;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace Services.Class
 {
-    public class MathServices : IMathServices
+    public class MathTransientService:IMathTransient
     {
-        double check1;
-        public MathServices()
-             
+        public MathTransientService()
         {
-            check1 = check1 + 1;
-            Console.WriteLine(check1);
+            Console.WriteLine("TransientService");
         }
-        public double  Add(MathValue value)
+        public double Add(MathValue value)
         {
-            
+
             double result = value.value1 + value.value2;
-          
-            return  result;
+
+            return result;
         }
 
         public double div(MathValue value)
         {
             double result;
-             result = value.value1 / value.value2;
-                if (double.IsNaN(result))
-                {
-                    throw new DivideByZeroException();
-                 
-                }
-                return result;
-         
+            result = value.value1 / value.value2;
+            if (double.IsNaN(result))
+            {
+                throw new DivideByZeroException();
+
+            }
+            return result;
+
 
         }
 

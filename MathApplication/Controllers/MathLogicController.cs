@@ -12,22 +12,28 @@ namespace MathApplication.Controllers
     [ApiController]
     public class MathLogicController : ControllerBase
     {
+       
         public  readonly IMathServices _math;
-        public MathLogicController(IMathServices mathRepo)
+
+        //
+        public MathLogicController(IMathServices mathRepo, IServiceProvider serviceProvider)
         {
             _math = mathRepo;
+           
         }
-
+        
         [HttpGet]
         [Route("hello")]
         public string check()
         {
+            Console.WriteLine("hello");
             return "hello world ";
         }
         [HttpGet]
         [Route("Add")]
         public async Task<IActionResult> Add( double value1,double value2)
         {
+            
             try
             {
                 MathValue value = new MathValue() { value1 = value1, value2 = value2 };

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Repository;
 using Services;
+using Services.Class;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,14 @@ namespace MathApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //this is an example for explaning the AddSingleton,AddTransient,AddScoped
+            services.AddSingleton<IMathSingleton, MathSingletonService>();
+            services.AddTransient<IMathTransient, MathTransientService>();
+            services.AddScoped<IMathScoped, MathScopedService>();
+
+
+
+            //end 
             services.AddTransient<IMathServices, MathServices>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
