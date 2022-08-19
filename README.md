@@ -20,3 +20,7 @@ Transient- has 3 instance and all instance are excuted
 Scoped -had 2 instance created but only excute only once .
 Singleton -will not excute since once created  objects are the same for every object and every request  .
 Transient- has 3 instance and all instance are excuted .
+
+Adding custom Filter to print the params of the request for now i have added it to only the ADD controller 
+![image](https://user-images.githubusercontent.com/55627267/185558802-f5f92f9c-bcb6-4adb-9847-8220a2cc2011.png)
+
