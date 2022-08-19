@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MathApplication.Controllers.Filter;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Model;
 using Repository;
 using System;
@@ -14,23 +16,28 @@ namespace MathApplication.Controllers
     {
        
         public  readonly IMathServices _math;
+        
 
         //
         public MathLogicController(IMathServices mathRepo, IServiceProvider serviceProvider)
         {
             _math = mathRepo;
-           
+          
+
+
         }
         
         [HttpGet]
         [Route("hello")]
+        [CustomActionFIlterAttributes("check_hello_World")]
         public string check()
         {
-            Console.WriteLine("hello");
+            //var s = HttpContext.Items["entity"] as string;
             return "hello world ";
         }
         [HttpGet]
         [Route("Add")]
+        [CustomActionFIlterAttributes("AddController")]
         public async Task<IActionResult> Add( double value1,double value2)
         {
             

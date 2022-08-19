@@ -1,3 +1,4 @@
+using MathApplication.Controllers.Filter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,8 +38,14 @@ namespace MathApplication
 
 
             //end 
+            
+           
             services.AddTransient<IMathServices, MathServices>();
-            services.AddControllers();
+
+            services.AddControllers(option=>
+            {
+                option.Filters.Add(new CustomActionFIlterAttributes("Global"));
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MathApplication", Version = "v1" });
